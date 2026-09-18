@@ -200,19 +200,23 @@ export const ChatPage = ({ initialChatId, initialPrompt }) => {
     abortControllerRef.current = abortController;
 
     try {
-      const response = await fetch('/api/chat/stream', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          ...(token ? { 'Authorization': `Bearer ${token}` } : {})
-        },
-        body: JSON.stringify({
-          chatId: activeConversationId || undefined,
-          conversationId: activeConversationId || undefined,
-          message: prompt,
-          language
-        }),
-        signal: abortController.signal
+         const API_BASE_URL =
+           import.meta.env.VITE_API_URL || 'http://localhost:5060/api';
+
+         const response = await fetch(`${API_BASE_URL}/chat/stream`, {
+             method: 'POST',
+             credentials: 'include',
+             headers: {
+                   'Content-Type': 'application/json',
+                   ...(token ? { Authorization: `Bearer ${token}` } : {})
+       },
+         body: JSON.stringify({
+         chatId: activeConversationId || undefined,
+        conversationId: activeConversationId || undefined,
+        message: prompt,
+       language
+  }),
+     signal: abortController.signal
       });
 
       if (!response.ok || !response.body) {
