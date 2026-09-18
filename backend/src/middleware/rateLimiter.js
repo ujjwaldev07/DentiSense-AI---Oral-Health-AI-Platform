@@ -3,7 +3,7 @@ import { ENV } from '../config/env.js';
 
 export const globalLimiter = rateLimit({
   windowMs: ENV.RATE_LIMIT_WINDOW_MS,
-  max: ENV.RATE_LIMIT_MAX_REQUESTS,
+  limit: ENV.RATE_LIMIT_MAX_REQUESTS,
   standardHeaders: true,
   legacyHeaders: false,
   message: {
@@ -25,7 +25,7 @@ export const authLimiter = rateLimit({
 
 export const aiLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: ENV.AI_RATE_LIMIT_MAX_REQUESTS,
+  limit: ENV.AI_RATE_LIMIT_MAX_REQUESTS,
   message: {
     success: false,
     message: 'AI query limit reached for your session. Please wait before asking more questions.',
