@@ -43,12 +43,6 @@ The frontend will run on `http://localhost:5174`.
 
 ---
 
-## 👥 Demo Credentials
-
-| Role | Email | Password | Access Level |
-| :--- | :--- | :--- | :--- |
-| **Administrator** | `admin@dentalaware.org` | `Admin@12345` | Knowledge Base CRUD, RAG Vector Indexer, User Management, Feedback Monitor, Platform Analytics |
-| **Standard User** | `user@dentalaware.org` | `User@12345` | AI Dental Chatbot, 5-Step Symptom Assessment, Personal Health Journey, Voice I/O |
 
 ---
 
